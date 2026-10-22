@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#176b50">
+  <meta name="description" content="طبختي — خطط وجباتك واحسب مقاضيك بميزانية تناسبك">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>طبختي | خطط مقاضيك بذكاء</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="brand-icon">🍲</div><div><strong>طبختي</strong><small>وجبات أذكى، مقاضي أوفر</small></div></div>
+  <button class="ghost" id="resetBtn" aria-label="إعادة ضبط">إعادة ضبط</button>
+</header>
+<main>
+  <section class="hero">
+    <span class="eyebrow">خطتك تبدأ هنا</span>
+    <h1>وش نطبخ هالأسبوع؟</h1>
+    <p>خطط وجباتك، جهّز قائمة المقاضي، واعرف التكلفة التقديرية قبل التسوق.</p>
+    <div class="budget-row">
+      <label for="budget">ميزانية المقاضي (ر.س)</label>
+      <input id="budget" type="number" min="0" step="5" value="180">
+      <label for="people">عدد الأشخاص</label>
+      <select id="people"><option>1</option><option>2</option><option selected>4</option><option>5</option><option>6</option><option>8</option></select>
+    </div>
+  </section>
+  <nav class="tabs" aria-label="أقسام التطبيق">
+    <button class="tab active" data-tab="plan">خطة الأسبوع</button>
+    <button class="tab" data-tab="shopping">قائمة المقاضي <span id="countBadge">0</span></button>
+    <button class="tab" data-tab="recipes">الوصفات</button>
+  </nav>
+  <section id="plan" class="panel active">
+    <div class="section-head"><div><h2>وجباتك المقترحة</h2><p>اختر الوجبات المناسبة لك.</p></div><span class="pill">٧ أيام</span></div>
+    <div id="mealGrid" class="meal-grid"></div>
+  </section>
+  <section id="shopping" class="panel">
+    <div class="section-head"><div><h2>قائمة المقاضي</h2><p>علّم على المنتجات اللي حطيتها بالسلة.</p></div><button class="primary small" id="copyList">نسخ القائمة</button></div>
+    <div class="summary-cards">
+      <div class="summary"><small>التكلفة التقديرية</small><strong id="totalCost">0 ر.س</strong></div>
+      <div class="summary"><small>الميزانية المتبقية</small><strong id="remaining">0 ر.س</strong></div>
+    </div>
+    <div class="progress"><span id="budgetProgress"></span></div>
+    <div id="shoppingList" class="shopping-list"></div>
+    <p class="disclaimer">الأسعار في هذا النموذج افتراضية للتجربة وليست أسعارًا مباشرة من المتاجر.</p>
+  </section>
+  <section id="recipes" class="panel">
+    <div class="section-head"><div><h2>مكتبة الوصفات</h2><p>وصفات عربية مناسبة للبيت.</p></div></div>
+    <div id="recipeGrid" class="recipe-grid"></div>
+  </section>
+  <section class="note">
+    <span>🌱</span><div><strong>طبختي يتطور معك</strong><p>هذه نسخة أولية تعمل على جهازك. حفظ البيانات محلي، وربط الحسابات والأسعار الفعلية يحتاج إعداد خدمات خارجية.</p></div>
+  </section>
+</main>
+<footer>طبختي © <span id="year"></span> · نسخة تجريبية</footer>
+<div id="toast" role="status" class="toast" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

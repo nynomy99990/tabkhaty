@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">طبختي</title>
+  <desc id="desc">أيقونة تطبيق طبختي</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1d8d67"/>
+      <stop offset="100%" stop-color="#104b39"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#g)"/>
+  <circle cx="64" cy="64" r="38" fill="#dff6ea" opacity="0.8"/>
+  <path d="M42 64c0-12 10-21 22-21 13 0 23 9 23 21v3c0 14-10 27-23 31-13-4-23-17-23-31v-3zm11 2c0 8 6 15 15 18 9-3 15-10 15-18v-1c0-8-7-15-15-15s-15 7-15 15v1z" fill="#176b50"/>
+  <path d="M50 76h28v8H50zm4-20h20v8H54z" fill="#e8f4ee"/>
+</svg>

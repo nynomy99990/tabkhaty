@@ -1,0 +1,17 @@
+{
+  "name": "طبختي",
+  "short_name": "طبختي",
+  "description": "خطط وجباتك�� جهّز قائمة المقاضي، واعرف التكلفة التقديرية قبل التسوق.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f7f9f7",
+  "theme_color": "#176b50",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
