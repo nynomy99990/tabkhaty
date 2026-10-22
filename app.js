@@ -115,6 +115,7 @@ const defaultRecipes = [
     emoji: '🥙',
     blurb: 'سريعة ومشبعة.',
     accent: 'خضار',
+    cuisine: 'عربي',
     ingredients: [
       { name: 'خبز', qty: '4 قطع', price: 5 },
       { name: 'دجاج', qty: '300 غ', price: 11 },
@@ -129,6 +130,7 @@ const defaultRecipes = [
     emoji: '🍚',
     blurb: 'وجبة عائلية مريحة.',
     accent: 'غداء',
+    cuisine: 'عربي',
     ingredients: [
       { name: 'أرز', qty: '1 كيس', price: 6 },
       { name: 'دجاج', qty: '500 غ', price: 12 },
@@ -143,6 +145,7 @@ const defaultRecipes = [
     emoji: '🍢',
     blurb: 'نكهة عربية مميزة.',
     accent: 'عشاء',
+    cuisine: 'عربي',
     ingredients: [
       { name: 'لحم مفروم', qty: '400 غ', price: 16 },
       { name: 'طحينة', qty: '1 علبة', price: 5 },
@@ -157,6 +160,7 @@ const defaultRecipes = [
     emoji: '🍝',
     blurb: 'سهل وسريع.',
     accent: 'عائلة',
+    cuisine: 'أوروبي',
     ingredients: [
       { name: 'مكرونة', qty: '1 علبة', price: 6 },
       { name: 'جبن', qty: '250 غ', price: 8 },
@@ -171,6 +175,7 @@ const defaultRecipes = [
     emoji: '🥣',
     blurb: 'مفيدة ومشبعة.',
     accent: 'عشاء',
+    cuisine: 'عربي',
     ingredients: [
       { name: 'عدس', qty: '1 كيس', price: 7 },
       { name: 'بطاطس', qty: '500 غ', price: 3 },
@@ -185,6 +190,7 @@ const defaultRecipes = [
     emoji: '🐟',
     blurb: 'قيمة غذائية عالية.',
     accent: 'غداء',
+    cuisine: 'بحري',
     ingredients: [
       { name: 'سمك', qty: '500 غ', price: 13 },
       { name: 'ليمون', qty: '2 حبات', price: 2 },
@@ -195,6 +201,81 @@ const defaultRecipes = [
   }
 ];
 
+const worldCuisines = [
+  {
+    name: 'عربي',
+    dishes: [
+      { title: 'مندي دجاج', emoji: '🍗', time: '45 دقيقة', difficulty: 'متوسط', cuisine: 'عربي', nutrition: { calories: 580, protein: 40, carbs: 52, fat: 22, fiber: 7 }, ingredients: [{ name: 'دجاج', qty: '1 كجم', price: 20 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] },
+      { title: 'كبسة لحم', emoji: '🍲', time: '50 دقيقة', difficulty: 'متوسط', cuisine: 'عربي', nutrition: { calories: 620, protein: 45, carbs: 60, fat: 25, fiber: 8 }, ingredients: [{ name: 'لحم', qty: '500 غ', price: 22 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'طماطم', qty: '4 حبات', price: 3 }] },
+      { title: 'مقليّة خضار', emoji: '🥘', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'عربي', nutrition: { calories: 330, protein: 14, carbs: 26, fat: 16, fiber: 9 }, ingredients: [{ name: 'بطاطس', qty: '500 غ', price: 4 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'بصل', qty: '2 حبات', price: 2 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] }
+    ]
+  },
+  {
+    name: 'إيطالي',
+    dishes: [
+      { title: 'باستا ألبوفريتو', emoji: '🍝', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'إيطالي', nutrition: { calories: 510, protein: 26, carbs: 58, fat: 18, fiber: 5 }, ingredients: [{ name: 'مكرونة', qty: '1 علبة', price: 7 }, { name: 'جبن', qty: '250 غ', price: 9 }, { name: 'ثوم', qty: 'رأس', price: 2 }, { name: 'زيت', qty: 'زجاجة', price: 3 }] },
+      { title: 'بيتزا رقيقة', emoji: '🍕', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'إيطالي', nutrition: { calories: 560, protein: 24, carbs: 62, fat: 21, fiber: 4 }, ingredients: [{ name: 'عجين', qty: '1 باكيت', price: 8 }, { name: 'جبن', qty: '300 غ', price: 10 }, { name: 'طماطم', qty: '4 حبات', price: 3 }, { name: 'مشروم', qty: '250 غ', price: 6 }] },
+      { title: 'راتاتوي', emoji: '🍅', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'إيطالي', nutrition: { calories: 390, protein: 16, carbs: 28, fat: 20, fiber: 10 }, ingredients: [{ name: 'طماطم', qty: '4 حبات', price: 3 }, { name: 'باذنجان', qty: '1 حبة', price: 4 }, { name: 'ثوم', qty: 'رأس', price: 2 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] }
+    ]
+  },
+  {
+    name: 'هندي',
+    dishes: [
+      { title: 'شاورما بالدجاج', emoji: '🌯', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'هندي', nutrition: { calories: 460, protein: 35, carbs: 40, fat: 18, fiber: 6 }, ingredients: [{ name: 'دجاج', qty: '300 غ', price: 12 }, { name: 'خبز', qty: '4 قطع', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'خضار', qty: '1 باقة', price: 5 }] },
+      { title: 'كاري عدس', emoji: '🥘', time: '40 دقيقة', difficulty: 'متوسط', cuisine: 'هندي', nutrition: { calories: 420, protein: 24, carbs: 46, fat: 12, fiber: 12 }, ingredients: [{ name: 'عدس', qty: '1 كيس', price: 7 }, { name: 'حليب جوز هند', qty: '1 علبة', price: 7 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'بصل', qty: '2 حبات', price: 2 }] },
+      { title: 'مندي خضار', emoji: '🧺', time: '30 دقيقة', difficulty: 'سهل', cuisine: 'هندي', nutrition: { calories: 360, protein: 17, carbs: 48, fat: 10, fiber: 11 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] }
+    ]
+  },
+  {
+    name: 'ياباني',
+    dishes: [
+      { title: 'سوشي مفروم', emoji: '🍣', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'ياباني', nutrition: { calories: 390, protein: 28, carbs: 32, fat: 15, fiber: 4 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'سمك', qty: '400 غ', price: 15 }, { name: 'نوري', qty: '1 باكيت', price: 4 }, { name: 'زنجبيل', qty: '1 جذر', price: 3 }] },
+      { title: 'رامن خضار', emoji: '🍜', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'ياباني', nutrition: { calories: 500, protein: 21, carbs: 58, fat: 19, fiber: 8 }, ingredients: [{ name: 'نودلز', qty: '1 باكيت', price: 7 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }, { name: 'زنجبيل', qty: '1 جذر', price: 3 }] },
+      { title: 'تيرياكي دجاج', emoji: '🍱', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'ياباني', nutrition: { calories: 520, protein: 37, carbs: 42, fat: 18, fiber: 5 }, ingredients: [{ name: 'دجاج', qty: '400 غ', price: 15 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'فطر', qty: '250 غ', price: 5 }] }
+    ]
+  },
+  {
+    name: 'مكسيكي',
+    dishes: [
+      { title: 'تاكو لحم', emoji: '🌮', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'مكسيكي', nutrition: { calories: 470, protein: 32, carbs: 45, fat: 18, fiber: 7 }, ingredients: [{ name: 'لحم مفروم', qty: '400 غ', price: 17 }, { name: 'خبز', qty: '8 قطع', price: 6 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'خس', qty: '1 رأس', price: 4 }] },
+      { title: 'فاهيتا دجاج', emoji: '🍽️', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'مكسيكي', nutrition: { calories: 510, protein: 34, carbs: 38, fat: 22, fiber: 8 }, ingredients: [{ name: 'دجاج', qty: '400 غ', price: 15 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'بصل', qty: '2 حبات', price: 2 }, { name: 'ذرة', qty: '1 علبة', price: 5 }] },
+      { title: 'غوارا ماشا', emoji: '🥑', time: '28 دقيقة', difficulty: 'سهل', cuisine: 'مكسيكي', nutrition: { calories: 430, protein: 20, carbs: 36, fat: 20, fiber: 10 }, ingredients: [{ name: 'أفوكادو', qty: '2 حبات', price: 8 }, { name: 'ذرة', qty: '1 علبة', price: 5 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'ليمون', qty: '2 حبات', price: 2 }] }
+    ]
+  },
+  {
+    name: 'تركي',
+    dishes: [
+      { title: 'دونر كبدة', emoji: '🍲', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'تركي', nutrition: { calories: 560, protein: 33, carbs: 38, fat: 26, fiber: 6 }, ingredients: [{ name: 'كبدة', qty: '400 غ', price: 18 }, { name: 'بطاطا', qty: '500 غ', price: 5 }, { name: 'بصل', qty: '2 حبات', price: 2 }, { name: 'بهارات', qty: 'معبأة', price: 4 }] },
+      { title: 'بوريك بالجبن', emoji: '🥐', time: '30 دقيقة', difficulty: 'سهل', cuisine: 'تركي', nutrition: { calories: 490, protein: 25, carbs: 43, fat: 20, fiber: 5 }, ingredients: [{ name: 'عجين', qty: '1 باكيت', price: 7 }, { name: 'جبن', qty: '300 غ', price: 9 }, { name: 'بقدونس', qty: 'حزمة', price: 2 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] },
+      { title: 'مزيج رز تركي', emoji: '🍚', time: '45 دقيقة', difficulty: 'متوسط', cuisine: 'تركي', nutrition: { calories: 520, protein: 29, carbs: 55, fat: 18, fiber: 6 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'دجاج', qty: '500 غ', price: 16 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 4 }] }
+    ]
+  },
+  {
+    name: 'فرنسي',
+    dishes: [
+      { title: 'كرواسون بالجبن', emoji: '🥐', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'فرنسي', nutrition: { calories: 440, protein: 20, carbs: 46, fat: 18, fiber: 3 }, ingredients: [{ name: 'عجين', qty: '1 باكيت', price: 7 }, { name: 'جبن', qty: '250 غ', price: 9 }, { name: 'حليب', qty: '1 لتر', price: 3 }, { name: 'زبدة', qty: '200 غ', price: 5 }] },
+      { title: 'فرنسي كروك', emoji: '🥘', time: '40 دقيقة', difficulty: 'متوسط', cuisine: 'فرنسي', nutrition: { calories: 510, protein: 28, carbs: 40, fat: 24, fiber: 7 }, ingredients: [{ name: 'لحم بقري', qty: '500 غ', price: 19 }, { name: 'بطاطا', qty: '600 غ', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] },
+      { title: 'سلطة نيسواز', emoji: '🥗', time: '15 دقيقة', difficulty: 'سهل', cuisine: 'فرنسي', nutrition: { calories: 360, protein: 17, carbs: 18, fat: 22, fiber: 8 }, ingredients: [{ name: 'خس', qty: '1 رأس', price: 4 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'جبن', qty: '200 غ', price: 8 }, { name: 'زيت زيتون', qty: '1 علبة', price: 4 }] }
+    ]
+  },
+  {
+    name: 'صيني',
+    dishes: [
+      { title: 'أرز مقلي صيني', emoji: '🍚', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'صيني', nutrition: { calories: 430, protein: 24, carbs: 52, fat: 15, fiber: 5 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }, { name: 'دجاج', qty: '300 غ', price: 12 }] },
+      { title: 'توفو صيني', emoji: '🥢', time: '22 دقيقة', difficulty: 'سهل', cuisine: 'صيني', nutrition: { calories: 380, protein: 19, carbs: 32, fat: 17, fiber: 8 }, ingredients: [{ name: 'توفو', qty: '300 غ', price: 9 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }, { name: 'زنجبيل', qty: '1 جذر', price: 3 }] },
+      { title: 'دجاج كرسبي', emoji: '🍗', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'صيني', nutrition: { calories: 570, protein: 37, carbs: 36, fat: 29, fiber: 4 }, ingredients: [{ name: 'دجاج', qty: '500 غ', price: 18 }, { name: 'دقيق', qty: '1 كيس', price: 4 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }] }
+    ]
+  },
+  {
+    name: 'جنوب أمريكي',
+    dishes: [
+      { title: 'سوبا كينانا', emoji: '🌶️', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'جنوب أمريكي', nutrition: { calories: 600, protein: 36, carbs: 47, fat: 27, fiber: 9 }, ingredients: [{ name: 'لحم', qty: '500 غ', price: 20 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'بهارات', qty: 'معبأة', price: 4 }] },
+      { title: 'كاسرادا بانانا', emoji: '🍌', time: '18 دقيقة', difficulty: 'سهل', cuisine: 'جنوب أمريكي', nutrition: { calories: 330, protein: 12, carbs: 44, fat: 10, fiber: 5 }, ingredients: [{ name: 'موز', qty: '4 حبات', price: 6 }, { name: 'زبادي', qty: 'علبة', price: 5 }, { name: 'عسل', qty: '1 علبة', price: 4 }, { name: 'سمسم', qty: '1 علبة', price: 3 }] },
+      { title: 'أكابيليدو', emoji: '🥥', time: '28 دقيقة', difficulty: 'متوسط', cuisine: 'جنوب أمريكي', nutrition: { calories: 520, protein: 23, carbs: 33, fat: 31, fiber: 11 }, ingredients: [{ name: 'سمك', qty: '500 غ', price: 15 }, { name: 'جوز هند', qty: '1 علبة', price: 8 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'خضار', qty: '1 باقة', price: 5 }] }
+    ]
+  }
+];
+
 const defaultTrending = [
   {
     title: 'بوفيه الشاورما الصحية',
@@ -202,6 +283,7 @@ const defaultTrending = [
     tag: 'Trending',
     score: 96,
     time: '15 دقيقة',
+    cuisine: 'عربي',
     nutrition: { calories: 470, protein: 30, carbs: 42, fat: 18, fiber: 9 },
     ingredients: [
       { name: 'خبز', qty: '4 قطع', price: 5 },
@@ -216,6 +298,7 @@ const defaultTrending = [
     tag: 'Low cost',
     score: 91,
     time: '12 دقيقة',
+    cuisine: 'بحري',
     nutrition: { calories: 390, protein: 29, carbs: 20, fat: 18, fiber: 10 },
     ingredients: [
       { name: 'تونة', qty: '2 علب', price: 9 },
@@ -230,6 +313,7 @@ const defaultTrending = [
     tag: 'High protein',
     score: 88,
     time: '18 دقيقة',
+    cuisine: 'أوروبي',
     nutrition: { calories: 480, protein: 38, carbs: 35, fat: 19, fiber: 5 },
     ingredients: [
       { name: 'دقيق', qty: '1 كيس', price: 4 },
@@ -246,7 +330,9 @@ const state = {
   shoppingList: [],
   checked: [],
   selectedTab: 'plan',
-  trendingRecipes: []
+  trendingRecipes: [],
+  globalCuisine: 'الكل',
+  deferredPrompt: null
 };
 
 const refs = {
@@ -260,7 +346,10 @@ const refs = {
   countBadge: document.querySelector('#countBadge'),
   recipeGrid: document.querySelector('#recipeGrid'),
   trendingGrid: document.querySelector('#trendingGrid'),
+  globalCuisineGrid: document.querySelector('#globalCuisineGrid'),
+  cuisineFilters: document.querySelector('#cuisineFilters'),
   resetBtn: document.querySelector('#resetBtn'),
+  installBtn: document.querySelector('#installBtn'),
   copyList: document.querySelector('#copyList'),
   toast: document.querySelector('#toast'),
   year: document.querySelector('#year'),
@@ -282,6 +371,10 @@ function formatCurrency(value) {
   return `${Math.round(value)} ر.س`;
 }
 
+function getAllRecipes() {
+  return [...defaultRecipes, ...state.trendingRecipes, ...worldCuisines.flatMap(cuisine => cuisine.dishes)];
+}
+
 function loadState() {
   const raw = localStorage.getItem(STORAGE_KEY);
   if (raw) {
@@ -292,6 +385,7 @@ function loadState() {
       state.selectedTab = saved.selectedTab || state.selectedTab;
       state.shoppingList = Array.isArray(saved.shoppingList) ? saved.shoppingList : [];
       state.checked = Array.isArray(saved.checked) ? saved.checked : [];
+      state.globalCuisine = saved.globalCuisine || 'الكل';
     } catch (error) {
       console.warn('Local state could not be read:', error);
     }
@@ -321,7 +415,8 @@ function saveState() {
     people: state.people,
     selectedTab: state.selectedTab,
     shoppingList: state.shoppingList,
-    checked: state.checked
+    checked: state.checked,
+    globalCuisine: state.globalCuisine
   }));
 }
 
@@ -349,8 +444,6 @@ function refreshTrendingRecipes(force = false) {
       const next = defaultTrending.map((recipe, index) => ({
         ...recipe,
         score: Math.max(80, Math.min(99, recipe.score + ((index + 1) % 3 === 0 ? 1 : -1))),
-        title: recipe.title,
-        time: recipe.time,
         nutrition: {
           calories: recipe.nutrition.calories + (index * 6),
           protein: recipe.nutrition.protein + (index % 2 === 0 ? 2 : 1),
@@ -386,7 +479,7 @@ function renderMeals() {
           <option>خيار مقترح</option>
           <option>بديل نباتي</option>
           <option>خارج المنزل</option>
-          <option>أض��ف لاحقًا</option>
+          <option>أضيف لاحقًا</option>
         </select>
         <button type="button" data-add-meal="${meal.id}">أضف</button>
       </div>
@@ -432,7 +525,7 @@ function addMealToList(mealId) {
 }
 
 function addRecipeToList(recipeTitle) {
-  const recipe = [...defaultRecipes, ...state.trendingRecipes].find(item => item.title === recipeTitle);
+  const recipe = getAllRecipes().find(item => item.title === recipeTitle);
   if (!recipe) return;
 
   (recipe.ingredients || []).forEach(item => addItemToList(item));
@@ -450,7 +543,7 @@ function renderRecipes() {
       <p>${recipe.blurb}</p>
       <div class="recipe-bottom">
         <span>${recipe.time}</span>
-        <span>سهل</span>
+        <span>${recipe.cuisine}</span>
       </div>
       <div class="nutrition-mini">
         <span>كالوري: ${recipe.nutrition.calories}</span>
@@ -462,6 +555,47 @@ function renderRecipes() {
 
   refs.recipeGrid.querySelectorAll('[data-recipe]').forEach(button => {
     button.addEventListener('click', () => addRecipeToList(button.dataset.recipe));
+  });
+}
+
+function renderCuisineFilters() {
+  const cuisines = ['الكل', ...worldCuisines.map(menu => menu.name)];
+  refs.cuisineFilters.innerHTML = cuisines.map(name => `
+    <button type="button" class="filter-btn ${state.globalCuisine === name ? 'active' : ''}" data-cuisine="${name}">${name}</button>
+  `).join('');
+
+  refs.cuisineFilters.querySelectorAll('[data-cuisine]').forEach(button => {
+    button.addEventListener('click', () => {
+      state.globalCuisine = button.dataset.cuisine;
+      saveState();
+      renderCuisineFilters();
+      renderGlobalCuisineDishes();
+    });
+  });
+}
+
+function renderGlobalCuisineDishes() {
+  const all = worldCuisines.flatMap(cuisine => cuisine.dishes.map(dish => ({ ...dish, cuisineName: cuisine.name })));
+  const list = state.globalCuisine === 'الكل' ? all : all.filter(dish => dish.cuisineName === state.globalCuisine);
+
+  refs.globalCuisineGrid.innerHTML = list.map(dish => `
+    <article class="global-card">
+      <div class="global-head">
+        <span class="meal-emoji">${dish.emoji}</span>
+        <span class="global-cuisine">${dish.cuisineName}</span>
+      </div>
+      <h3>${dish.title}</h3>
+      <p>${dish.time} · ${dish.difficulty}</p>
+      <div class="nutrition-mini">
+        <span>${dish.nutrition.calories} kcal</span>
+        <span>${dish.nutrition.protein}غ بروتين</span>
+      </div>
+      <button type="button" data-global-recipe="${dish.title}">إضافة</button>
+    </article>
+  `).join('');
+
+  refs.globalCuisineGrid.querySelectorAll('[data-global-recipe]').forEach(button => {
+    button.addEventListener('click', () => addRecipeToList(button.dataset.globalRecipe));
   });
 }
 
@@ -629,9 +763,12 @@ function resetPlanner() {
   state.people = 4;
   state.shoppingList = [];
   state.checked = [];
+  state.globalCuisine = 'الكل';
   refs.budget.value = 180;
   refs.people.value = 4;
   saveState();
+  renderCuisineFilters();
+  renderGlobalCuisineDishes();
   renderShoppingList();
   showToast('تمت إعادة ضبط الخطة');
 }
@@ -656,22 +793,28 @@ function addCustomItem() {
 
 function buildAiSuggestion(prompt) {
   const text = (prompt || '').toLowerCase();
-  let recipe = defaultRecipes[0];
+  let recipe = getAllRecipes()[0];
 
   if (text.includes('سريع') || text.includes('quick')) {
-    recipe = defaultRecipes.find(item => item.title === 'شوربة العدس') || defaultRecipes[0];
+    recipe = getAllRecipes().find(item => item.title === 'شوربة العدس') || getAllRecipes()[0];
   } else if (text.includes('بروتين') || text.includes('protein')) {
-    recipe = defaultRecipes.find(item => item.title === 'سمك مشوي') || defaultRecipes[1];
-  } else if (text.includes('خالي') || text.includes('نباتي') || text.includes('vegan')) {
-    recipe = defaultRecipes.find(item => item.title === 'سلطة الشاورما المنزلية') || defaultRecipes[2];
+    recipe = getAllRecipes().find(item => item.title === 'سمك مشوي') || getAllRecipes()[1];
+  } else if (text.includes('نباتي') || text.includes('vegan')) {
+    recipe = getAllRecipes().find(item => item.title === 'سلطة الشاورما المنزلية') || getAllRecipes()[2];
   } else if (text.includes('ميزانية') || text.includes('budget') || text.includes('اقل')) {
-    recipe = defaultRecipes.find(item => item.title === 'شوربة العدس') || defaultRecipes[4];
+    recipe = getAllRecipes().find(item => item.title === 'شوربة العدس') || getAllRecipes()[4];
   } else if (text.includes('عائلة') || text.includes('family')) {
-    recipe = defaultRecipes.find(item => item.title === 'أرز بالدجاج') || defaultRecipes[1];
+    recipe = getAllRecipes().find(item => item.title === 'أرز بالدجاج') || getAllRecipes()[1];
+  } else if (text.includes('ياباني') || text.includes('japanese')) {
+    recipe = getAllRecipes().find(item => item.title === 'رامن خضار') || getAllRecipes()[0];
+  } else if (text.includes('إيطالي') || text.includes('italian')) {
+    recipe = getAllRecipes().find(item => item.title === 'باستا ألبوفريتو') || getAllRecipes()[0];
+  } else if (text.includes('هندي') || text.includes('indian')) {
+    recipe = getAllRecipes().find(item => item.title === 'شاورما بالدجاج') || getAllRecipes()[0];
   }
 
   const baseBudget = Number(state.budget) || 180;
-  const totalNeeded = recipe.ingredients.reduce((sum, x) => sum + (Number(x.price) || 0), 0);
+  const totalNeeded = (recipe.ingredients || []).reduce((sum, x) => sum + (Number(x.price) || 0), 0);
   const fit = totalNeeded <= baseBudget ? 'مناسب لميزانيتك الحالية' : 'يتطلب تعديلًا بسيطًا في المكونات';
 
   return {
@@ -705,7 +848,7 @@ function handleAiRequest() {
   `;
 
   refs.aiOutput.querySelector('[data-ai-add]')?.addEventListener('click', () => addRecipeToList(suggestion.title));
-  showToast('تم توليد اقتراح الذكاء الاصطناعي');
+  showToast('تم توليد اقتراح الذكاء الاصطنا��ي');
 }
 
 async function copyShoppingList() {
@@ -735,7 +878,7 @@ function renderNutritionPreview(file) {
   refs.photoPreview.src = url;
   refs.photoPreview.hidden = false;
 
-  const recipe = defaultRecipes[Math.floor(Math.random() * defaultRecipes.length)];
+  const recipe = getAllRecipes()[Math.floor(Math.random() * getAllRecipes().length)];
   refs.nutritionPreview.innerHTML = `
     <div class="nutrition-card">
       <strong>تحليل الصورة</strong>
@@ -750,9 +893,23 @@ function renderNutritionPreview(file) {
   `;
 }
 
+function handleInstallClick() {
+  if (!state.deferredPrompt) {
+    showToast('التثبيت غير متاح الآن');
+    return;
+  }
+
+  state.deferredPrompt.prompt();
+  state.deferredPrompt.userChoice.finally(() => {
+    state.deferredPrompt = null;
+    if (refs.installBtn) refs.installBtn.classList.add('hidden');
+  });
+}
+
 refs.budget.addEventListener('input', updateBudget);
 refs.people.addEventListener('change', updatePeople);
 refs.resetBtn.addEventListener('click', resetPlanner);
+if (refs.installBtn) refs.installBtn.addEventListener('click', handleInstallClick);
 refs.copyList.addEventListener('click', copyShoppingList);
 refs.addCustom.addEventListener('click', addCustomItem);
 refs.aiSuggest.addEventListener('click', handleAiRequest);
@@ -776,9 +933,17 @@ refs.people.value = state.people;
 refreshTrendingRecipes();
 renderMeals();
 renderRecipes();
+renderCuisineFilters();
+renderGlobalCuisineDishes();
 renderTrendingRecipes();
 handleTabs();
 renderShoppingList();
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  state.deferredPrompt = event;
+  if (refs.installBtn) refs.installBtn.classList.remove('hidden');
+});
 
 window.addEventListener('load', () => {
   if ('serviceWorker' in navigator) {

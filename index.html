@@ -12,7 +12,10 @@
 <body>
 <header class="topbar">
   <div class="brand"><div class="brand-icon">🍲</div><div><strong>طبختي</strong><small>وجبات أذكى، مقاضي أوفر</small></div></div>
-  <button class="ghost" id="resetBtn" aria-label="إعادة ضبط">إعادة ضبط</button>
+  <div class="header-actions">
+    <button class="ghost hidden" id="installBtn" aria-label="تثبيت التطبيق">تثبيت</button>
+    <button class="ghost" id="resetBtn" aria-label="إعادة ضبط">إعادة ضبط</button>
+  </div>
 </header>
 <main>
   <section class="hero">
@@ -50,18 +53,21 @@
     </div>
     <div class="progress"><span id="budgetProgress"></span></div>
     <div id="shoppingList" class="shopping-list"></div>
-    <p class="disclaimer">الأسعار في هذا النموذج افتراضية للتجربة وليست أسعارًا مباشرة من المتاجر.</p>
+    <p class="disclaimer">الأسعار في هذا النموذج افتراضية للتجربة وليست أسعارًا مباشرة من ��لمتاجر.</p>
   </section>
   <section id="recipes" class="panel">
     <div class="section-head"><div><h2>مكتبة الوصفات</h2><p>وصفات عربية مناسبة للبيت.</p></div></div>
     <div class="section-head"><div><h3>الوصفات الترند</h3></div></div>
     <div id="trendingGrid" class="recipe-grid"></div>
+    <div class="section-head" style="margin-top:18px"><div><h3>مطبخ العالم</h3></div></div>
+    <div id="cuisineFilters" class="filter-row"></div>
+    <div id="globalCuisineGrid" class="recipe-grid"></div>
     <div class="section-head" style="margin-top:18px"><div><h3>كل الوصفات</h3></div></div>
     <div id="recipeGrid" class="recipe-grid"></div>
   </section>
   <section id="assistant" class="panel">
     <div class="assistant-box">
-      <h2>مساعد الطبخ الذكي</h2>
+      <h2>��ساعد الطبخ الذكي</h2>
       <textarea id="aiPrompt" placeholder="مثال: أريد وجبة سريعة وقليلة التكلفة مع بروتين عالي"></textarea>
       <div class="ai-actions">
         <button type="button" class="primary small" id="aiSuggest">اقتراح ذكي</button>
