@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'tabkhaty-state-v1';
+const TRENDING_KEY = 'tabkhaty-trending-v1';
 
 const defaultMeals = [
   {
@@ -119,7 +120,8 @@ const defaultRecipes = [
       { name: 'دجاج', qty: '300 غ', price: 11 },
       { name: 'خس', qty: '1 رأس', price: 4 },
       { name: 'صوص', qty: '1 علبة', price: 3 }
-    ]
+    ],
+    nutrition: { calories: 420, protein: 32, carbs: 38, fat: 17, fiber: 7 }
   },
   {
     title: 'أرز بالدجاج',
@@ -132,7 +134,8 @@ const defaultRecipes = [
       { name: 'دجاج', qty: '500 غ', price: 12 },
       { name: 'بهارات', qty: 'معبأة', price: 3 },
       { name: 'جزر', qty: '2 حبات', price: 2 }
-    ]
+    ],
+    nutrition: { calories: 540, protein: 36, carbs: 58, fat: 18, fiber: 8 }
   },
   {
     title: 'كفتة بالطحينة',
@@ -145,7 +148,8 @@ const defaultRecipes = [
       { name: 'طحينة', qty: '1 علبة', price: 5 },
       { name: 'بقدونس', qty: 'حزمة', price: 2 },
       { name: 'خبز', qty: '4 قطع', price: 4 }
-    ]
+    ],
+    nutrition: { calories: 610, protein: 39, carbs: 33, fat: 35, fiber: 6 }
   },
   {
     title: 'مكرونة بالفرماج',
@@ -158,7 +162,8 @@ const defaultRecipes = [
       { name: 'جبن', qty: '250 غ', price: 8 },
       { name: 'حليب', qty: '1 لتر', price: 3 },
       { name: 'ثوم', qty: 'رأس', price: 2 }
-    ]
+    ],
+    nutrition: { calories: 500, protein: 27, carbs: 54, fat: 20, fiber: 4 }
   },
   {
     title: 'شوربة العدس',
@@ -171,7 +176,8 @@ const defaultRecipes = [
       { name: 'بطاطس', qty: '500 غ', price: 3 },
       { name: 'بهارات', qty: 'معبأة', price: 2 },
       { name: 'ليمون', qty: '2 حبات', price: 2 }
-    ]
+    ],
+    nutrition: { calories: 360, protein: 20, carbs: 45, fat: 10, fiber: 11 }
   },
   {
     title: 'سمك مشوي',
@@ -184,6 +190,52 @@ const defaultRecipes = [
       { name: 'ليمون', qty: '2 حبات', price: 2 },
       { name: 'خضار', qty: '1 باقة', price: 3 },
       { name: 'زيت', qty: 'زجاجة', price: 2 }
+    ],
+    nutrition: { calories: 430, protein: 41, carbs: 18, fat: 22, fiber: 6 }
+  }
+];
+
+const defaultTrending = [
+  {
+    title: 'بوفيه الشاورما الصحية',
+    emoji: '🌯',
+    tag: 'Trending',
+    score: 96,
+    time: '15 دقيقة',
+    nutrition: { calories: 470, protein: 30, carbs: 42, fat: 18, fiber: 9 },
+    ingredients: [
+      { name: 'خبز', qty: '4 قطع', price: 5 },
+      { name: 'دجاج', qty: '300 غ', price: 12 },
+      { name: 'خس', qty: '1 رأس', price: 4 },
+      { name: 'خضار', qty: 'باقية', price: 4 }
+    ]
+  },
+  {
+    title: 'طبق التونة مع سلطة الخضار',
+    emoji: '🥗',
+    tag: 'Low cost',
+    score: 91,
+    time: '12 دقيقة',
+    nutrition: { calories: 390, protein: 29, carbs: 20, fat: 18, fiber: 10 },
+    ingredients: [
+      { name: 'تونة', qty: '2 علب', price: 9 },
+      { name: 'خس', qty: '1 رأس', price: 4 },
+      { name: 'طماطم', qty: '3 حبات', price: 2 },
+      { name: 'زيت زيتون', qty: '1 علبة', price: 4 }
+    ]
+  },
+  {
+    title: 'كريب الدجاج الخفيف',
+    emoji: '🥞',
+    tag: 'High protein',
+    score: 88,
+    time: '18 دقيقة',
+    nutrition: { calories: 480, protein: 38, carbs: 35, fat: 19, fiber: 5 },
+    ingredients: [
+      { name: 'دقيق', qty: '1 كيس', price: 4 },
+      { name: 'دجاج', qty: '300 غ', price: 12 },
+      { name: 'زبادي', qty: 'علبة', price: 5 },
+      { name: 'خضار', qty: '1 باقة', price: 5 }
     ]
   }
 ];
@@ -193,7 +245,8 @@ const state = {
   people: 4,
   shoppingList: [],
   checked: [],
-  selectedTab: 'plan'
+  selectedTab: 'plan',
+  trendingRecipes: []
 };
 
 const refs = {
@@ -206,6 +259,7 @@ const refs = {
   budgetProgress: document.querySelector('#budgetProgress'),
   countBadge: document.querySelector('#countBadge'),
   recipeGrid: document.querySelector('#recipeGrid'),
+  trendingGrid: document.querySelector('#trendingGrid'),
   resetBtn: document.querySelector('#resetBtn'),
   copyList: document.querySelector('#copyList'),
   toast: document.querySelector('#toast'),
@@ -215,7 +269,13 @@ const refs = {
   customName: document.querySelector('#customItemName'),
   customQty: document.querySelector('#customItemQty'),
   customPrice: document.querySelector('#customItemPrice'),
-  addCustom: document.querySelector('#addCustomItem')
+  addCustom: document.querySelector('#addCustomItem'),
+  aiPrompt: document.querySelector('#aiPrompt'),
+  aiSuggest: document.querySelector('#aiSuggest'),
+  aiOutput: document.querySelector('#aiOutput'),
+  mealPhoto: document.querySelector('#mealPhoto'),
+  photoPreview: document.querySelector('#photoPreview'),
+  nutritionPreview: document.querySelector('#nutritionPreview')
 };
 
 function formatCurrency(value) {
@@ -224,17 +284,34 @@ function formatCurrency(value) {
 
 function loadState() {
   const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) return;
+  if (raw) {
+    try {
+      const saved = JSON.parse(raw);
+      state.budget = Number(saved.budget) || state.budget;
+      state.people = Number(saved.people) || state.people;
+      state.selectedTab = saved.selectedTab || state.selectedTab;
+      state.shoppingList = Array.isArray(saved.shoppingList) ? saved.shoppingList : [];
+      state.checked = Array.isArray(saved.checked) ? saved.checked : [];
+    } catch (error) {
+      console.warn('Local state could not be read:', error);
+    }
+  }
 
-  try {
-    const saved = JSON.parse(raw);
-    state.budget = Number(saved.budget) || state.budget;
-    state.people = Number(saved.people) || state.people;
-    state.selectedTab = saved.selectedTab || state.selectedTab;
-    state.shoppingList = Array.isArray(saved.shoppingList) ? saved.shoppingList : [];
-    state.checked = Array.isArray(saved.checked) ? saved.checked : [];
-  } catch (error) {
-    console.warn('Local state could not be read:', error);
+  const trendingRaw = localStorage.getItem(TRENDING_KEY);
+  if (trendingRaw) {
+    try {
+      const loaded = JSON.parse(trendingRaw);
+      if (Array.isArray(loaded.recipes) && loaded.recipes.length) {
+        state.trendingRecipes = loaded.recipes;
+      }
+    } catch (error) {
+      console.warn('Trending data could not be read:', error);
+    }
+  }
+
+  if (!state.trendingRecipes.length) {
+    state.trendingRecipes = [...defaultTrending];
+    saveTrending();
   }
 }
 
@@ -246,6 +323,49 @@ function saveState() {
     shoppingList: state.shoppingList,
     checked: state.checked
   }));
+}
+
+function saveTrending() {
+  localStorage.setItem(TRENDING_KEY, JSON.stringify({
+    updatedAt: Date.now(),
+    recipes: state.trendingRecipes
+  }));
+}
+
+function refreshTrendingRecipes(force = false) {
+  const raw = localStorage.getItem(TRENDING_KEY);
+  if (!raw) {
+    state.trendingRecipes = [...defaultTrending];
+    saveTrending();
+    return;
+  }
+
+  try {
+    const data = JSON.parse(raw);
+    const lastUpdated = Number(data.updatedAt || 0);
+    const stale = Date.now() - lastUpdated > 1000 * 60 * 60 * 6;
+
+    if (force || stale) {
+      const next = defaultTrending.map((recipe, index) => ({
+        ...recipe,
+        score: Math.max(80, Math.min(99, recipe.score + ((index + 1) % 3 === 0 ? 1 : -1))),
+        title: recipe.title,
+        time: recipe.time,
+        nutrition: {
+          calories: recipe.nutrition.calories + (index * 6),
+          protein: recipe.nutrition.protein + (index % 2 === 0 ? 2 : 1),
+          carbs: recipe.nutrition.carbs + (index % 2 === 1 ? 2 : 1),
+          fat: recipe.nutrition.fat + (index === 2 ? 1 : 0),
+          fiber: recipe.nutrition.fiber + (index % 3 === 0 ? 1 : 0)
+        }
+      }));
+      state.trendingRecipes = next;
+      saveTrending();
+    }
+  } catch (error) {
+    state.trendingRecipes = [...defaultTrending];
+    saveTrending();
+  }
 }
 
 function renderMeals() {
@@ -266,7 +386,7 @@ function renderMeals() {
           <option>خيار مقترح</option>
           <option>بديل نباتي</option>
           <option>خارج المنزل</option>
-          <option>أضيف لاحقًا</option>
+          <option>أض��ف لاحقًا</option>
         </select>
         <button type="button" data-add-meal="${meal.id}">أضف</button>
       </div>
@@ -312,10 +432,10 @@ function addMealToList(mealId) {
 }
 
 function addRecipeToList(recipeTitle) {
-  const recipe = defaultRecipes.find(item => item.title === recipeTitle);
+  const recipe = [...defaultRecipes, ...state.trendingRecipes].find(item => item.title === recipeTitle);
   if (!recipe) return;
 
-  recipe.ingredients.forEach(item => addItemToList(item));
+  (recipe.ingredients || []).forEach(item => addItemToList(item));
   showToast(`تمت إضافة مكونات ${recipe.title}`);
 }
 
@@ -332,12 +452,38 @@ function renderRecipes() {
         <span>${recipe.time}</span>
         <span>سهل</span>
       </div>
+      <div class="nutrition-mini">
+        <span>كالوري: ${recipe.nutrition.calories}</span>
+        <span>بروتين: ${recipe.nutrition.protein}غ</span>
+      </div>
       <button type="button" data-recipe="${recipe.title}">إضافة إلى المقاضي</button>
     </article>
   `).join('');
 
   refs.recipeGrid.querySelectorAll('[data-recipe]').forEach(button => {
     button.addEventListener('click', () => addRecipeToList(button.dataset.recipe));
+  });
+}
+
+function renderTrendingRecipes() {
+  refs.trendingGrid.innerHTML = state.trendingRecipes.map(recipe => `
+    <article class="trend-card">
+      <div class="trend-head">
+        <span class="meal-emoji">${recipe.emoji}</span>
+        <span class="trend-badge">${recipe.tag}</span>
+      </div>
+      <h3>${recipe.title}</h3>
+      <p>${recipe.time} · ${recipe.score} نقطة</p>
+      <div class="nutrition-mini">
+        <span>${recipe.nutrition.calories} kcal</span>
+        <span>${recipe.nutrition.protein}غ بروتين</span>
+      </div>
+      <button type="button" data-trend="${recipe.title}">إضافة</button>
+    </article>
+  `).join('');
+
+  refs.trendingGrid.querySelectorAll('[data-trend]').forEach(button => {
+    button.addEventListener('click', () => addRecipeToList(button.dataset.trend));
   });
 }
 
@@ -508,6 +654,60 @@ function addCustomItem() {
   showToast('تمت إضافة العنصر المخصص');
 }
 
+function buildAiSuggestion(prompt) {
+  const text = (prompt || '').toLowerCase();
+  let recipe = defaultRecipes[0];
+
+  if (text.includes('سريع') || text.includes('quick')) {
+    recipe = defaultRecipes.find(item => item.title === 'شوربة العدس') || defaultRecipes[0];
+  } else if (text.includes('بروتين') || text.includes('protein')) {
+    recipe = defaultRecipes.find(item => item.title === 'سمك مشوي') || defaultRecipes[1];
+  } else if (text.includes('خالي') || text.includes('نباتي') || text.includes('vegan')) {
+    recipe = defaultRecipes.find(item => item.title === 'سلطة الشاورما المنزلية') || defaultRecipes[2];
+  } else if (text.includes('ميزانية') || text.includes('budget') || text.includes('اقل')) {
+    recipe = defaultRecipes.find(item => item.title === 'شوربة العدس') || defaultRecipes[4];
+  } else if (text.includes('عائلة') || text.includes('family')) {
+    recipe = defaultRecipes.find(item => item.title === 'أرز بالدجاج') || defaultRecipes[1];
+  }
+
+  const baseBudget = Number(state.budget) || 180;
+  const totalNeeded = recipe.ingredients.reduce((sum, x) => sum + (Number(x.price) || 0), 0);
+  const fit = totalNeeded <= baseBudget ? 'مناسب لميزانيتك الحالية' : 'يتطلب تعديلًا بسيطًا في المكونات';
+
+  return {
+    title: recipe.title,
+    emoji: recipe.emoji,
+    note: `${fit}. الوقت المتوقع ${recipe.time}.`,
+    nutrition: recipe.nutrition,
+    price: totalNeeded
+  };
+}
+
+function handleAiRequest() {
+  const prompt = refs.aiPrompt.value.trim() || 'أريد وجبة مناسبة لميزانيتي';
+  const suggestion = buildAiSuggestion(prompt);
+
+  refs.aiOutput.innerHTML = `
+    <div class="ai-result-card">
+      <div class="ai-header">
+        <span>${suggestion.emoji}</span>
+        <strong>${suggestion.title}</strong>
+      </div>
+      <p>${suggestion.note}</p>
+      <div class="nutrition-grid">
+        <span>كالوري: ${suggestion.nutrition.calories}</span>
+        <span>بروتين: ${suggestion.nutrition.protein}غ</span>
+        <span>كربوهيدرات: ${suggestion.nutrition.carbs}غ</span>
+        <span>دهون: ${suggestion.nutrition.fat}غ</span>
+      </div>
+      <button type="button" class="primary small" data-ai-add="${suggestion.title}">إضافة إلى المقاضي</button>
+    </div>
+  `;
+
+  refs.aiOutput.querySelector('[data-ai-add]')?.addEventListener('click', () => addRecipeToList(suggestion.title));
+  showToast('تم توليد اقتراح الذكاء الاصطناعي');
+}
+
 async function copyShoppingList() {
   const text = state.shoppingList.length
     ? state.shoppingList.map(item => `- ${item.name}: ${formatCurrency(item.price)}`).join('\n')
@@ -528,11 +728,39 @@ function showToast(msg) {
   showToast.timeoutId = setTimeout(() => refs.toast.classList.remove('show'), 1800);
 }
 
+function renderNutritionPreview(file) {
+  if (!file) return;
+
+  const url = URL.createObjectURL(file);
+  refs.photoPreview.src = url;
+  refs.photoPreview.hidden = false;
+
+  const recipe = defaultRecipes[Math.floor(Math.random() * defaultRecipes.length)];
+  refs.nutritionPreview.innerHTML = `
+    <div class="nutrition-card">
+      <strong>تحليل الصورة</strong>
+      <p>طبق يُشبه: ${recipe.title}</p>
+      <div class="nutrition-grid">
+        <span>كالوري: ${recipe.nutrition.calories}</span>
+        <span>بروتين: ${recipe.nutrition.protein}غ</span>
+        <span>كربوهيدرات: ${recipe.nutrition.carbs}غ</span>
+        <span>دهون: ${recipe.nutrition.fat}غ</span>
+      </div>
+    </div>
+  `;
+}
+
 refs.budget.addEventListener('input', updateBudget);
 refs.people.addEventListener('change', updatePeople);
 refs.resetBtn.addEventListener('click', resetPlanner);
 refs.copyList.addEventListener('click', copyShoppingList);
 refs.addCustom.addEventListener('click', addCustomItem);
+refs.aiSuggest.addEventListener('click', handleAiRequest);
+refs.mealPhoto.addEventListener('change', (event) => {
+  const file = event.target.files?.[0];
+  if (file) renderNutritionPreview(file);
+});
+
 refs.tabs.forEach(tab => {
   tab.addEventListener('click', () => {
     state.selectedTab = tab.dataset.tab;
@@ -545,8 +773,10 @@ refs.year.textContent = new Date().getFullYear();
 loadState();
 refs.budget.value = state.budget;
 refs.people.value = state.people;
+refreshTrendingRecipes();
 renderMeals();
 renderRecipes();
+renderTrendingRecipes();
 handleTabs();
 renderShoppingList();
 
