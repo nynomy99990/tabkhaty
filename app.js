@@ -205,73 +205,73 @@ const worldCuisines = [
   {
     name: 'عربي',
     dishes: [
-      { title: 'مندي دجاج', emoji: '🍗', time: '45 دقيقة', difficulty: 'متوسط', cuisine: 'عربي', nutrition: { calories: 580, protein: 40, carbs: 52, fat: 22, fiber: 7 }, ingredients: [{ name: 'دجاج', qty: '1 كجم', price: 20 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] },
-      { title: 'كبسة لحم', emoji: '🍲', time: '50 دقيقة', difficulty: 'متوسط', cuisine: 'عربي', nutrition: { calories: 620, protein: 45, carbs: 60, fat: 25, fiber: 8 }, ingredients: [{ name: 'لحم', qty: '500 غ', price: 22 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'طماطم', qty: '4 حبات', price: 3 }] },
-      { title: 'مقليّة خضار', emoji: '🥘', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'عربي', nutrition: { calories: 330, protein: 14, carbs: 26, fat: 16, fiber: 9 }, ingredients: [{ name: 'بطاطس', qty: '500 غ', price: 4 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'بصل', qty: '2 حبات', price: 2 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] }
+      { title: 'مندي دجاج', emoji: '🍗', time: '45 دقيقة', difficulty: 'متوسط', cuisine: 'عربي', nutrition: { calories: 580, protein: 40, carbs: 52, fat: 22, fiber: 7 }, ingredients: [{ name: 'دجاج', qty: '1 كجم', price: 18 }, { name: 'أرز', qty: '1 كيس', price: 7 }, { name: 'بهارات', qty: 'معبأة', price: 3 }, { name: 'ليمون', qty: '2 حبات', price: 2 }] },
+      { title: 'كبسة لحم', emoji: '🍲', time: '50 دقيقة', difficulty: 'متوسط', cuisine: 'عربي', nutrition: { calories: 620, protein: 45, carbs: 60, fat: 25, fiber: 8 }, ingredients: [{ name: 'لحم', qty: '500 غ', price: 20 }, { name: 'أرز', qty: '1 كيس', price: 7 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'طماطم', qty: '3 حبات', price: 2 }] },
+      { title: 'مقليّة خضار', emoji: '🥘', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'عربي', nutrition: { calories: 330, protein: 14, carbs: 26, fat: 16, fiber: 9 }, ingredients: [{ name: 'خضار', qty: '1 باقة', price: 7 }, { name: 'حمص', qty: 'علبة', price: 5 }, { name: 'زيت', qty: 'زجاجة', price: 3 }, { name: 'بهارات', qty: 'معبأة', price: 2 }] }
     ]
   },
   {
     name: 'إيطالي',
     dishes: [
-      { title: 'باستا ألبوفريتو', emoji: '🍝', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'إيطالي', nutrition: { calories: 510, protein: 26, carbs: 58, fat: 18, fiber: 5 }, ingredients: [{ name: 'مكرونة', qty: '1 علبة', price: 7 }, { name: 'جبن', qty: '250 غ', price: 9 }, { name: 'ثوم', qty: 'رأس', price: 2 }, { name: 'زيت', qty: 'زجاجة', price: 3 }] },
-      { title: 'بيتزا رقيقة', emoji: '🍕', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'إيطالي', nutrition: { calories: 560, protein: 24, carbs: 62, fat: 21, fiber: 4 }, ingredients: [{ name: 'عجين', qty: '1 باكيت', price: 8 }, { name: 'جبن', qty: '300 غ', price: 10 }, { name: 'طماطم', qty: '4 حبات', price: 3 }, { name: 'مشروم', qty: '250 غ', price: 6 }] },
-      { title: 'راتاتوي', emoji: '🍅', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'إيطالي', nutrition: { calories: 390, protein: 16, carbs: 28, fat: 20, fiber: 10 }, ingredients: [{ name: 'طماطم', qty: '4 حبات', price: 3 }, { name: 'باذنجان', qty: '1 حبة', price: 4 }, { name: 'ثوم', qty: 'رأس', price: 2 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] }
+      { title: 'باستا ألبوفريتو', emoji: '🍝', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'إيطالي', nutrition: { calories: 510, protein: 26, carbs: 58, fat: 18, fiber: 5 }, ingredients: [{ name: 'باستا', qty: '1 علبة', price: 6 }, { name: 'جبن', qty: '250 غ', price: 8 }, { name: 'حليب', qty: '1 لتر', price: 3 }, { name: 'ثوم', qty: 'رأس', price: 2 }] },
+      { title: 'بيتزا رقيقة', emoji: '🍕', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'إيطالي', nutrition: { calories: 560, protein: 24, carbs: 62, fat: 21, fiber: 4 }, ingredients: [{ name: 'عجين بيتزا', qty: '1 باكيت', price: 5 }, { name: 'جبن', qty: '300 غ', price: 9 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'زيتون', qty: 'علبة', price: 4 }] },
+      { title: 'راتاتوي', emoji: '🍅', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'إيطالي', nutrition: { calories: 390, protein: 16, carbs: 28, fat: 20, fiber: 10 }, ingredients: [{ name: 'طماطم', qty: '4 حبات', price: 4 }, { name: 'باذنجان', qty: '1 حبة', price: 3 }, { name: 'ثوم', qty: 'رأس', price: 2 }, { name: 'زيت', qty: 'زجاجة', price: 2 }] }
     ]
   },
   {
     name: 'هندي',
     dishes: [
-      { title: 'شاورما بالدجاج', emoji: '🌯', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'هندي', nutrition: { calories: 460, protein: 35, carbs: 40, fat: 18, fiber: 6 }, ingredients: [{ name: 'دجاج', qty: '300 غ', price: 12 }, { name: 'خبز', qty: '4 قطع', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'خضار', qty: '1 باقة', price: 5 }] },
-      { title: 'كاري عدس', emoji: '🥘', time: '40 دقيقة', difficulty: 'متوسط', cuisine: 'هندي', nutrition: { calories: 420, protein: 24, carbs: 46, fat: 12, fiber: 12 }, ingredients: [{ name: 'عدس', qty: '1 كيس', price: 7 }, { name: 'حليب جوز هند', qty: '1 علبة', price: 7 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'بصل', qty: '2 حبات', price: 2 }] },
-      { title: 'مندي خضار', emoji: '🧺', time: '30 دقيقة', difficulty: 'سهل', cuisine: 'هندي', nutrition: { calories: 360, protein: 17, carbs: 48, fat: 10, fiber: 11 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] }
+      { title: 'شاورما بالدجاج', emoji: '🌯', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'هندي', nutrition: { calories: 460, protein: 35, carbs: 40, fat: 18, fiber: 6 }, ingredients: [{ name: 'خبز', qty: '4 قطع', price: 5 }, { name: 'دجاج', qty: '300 غ', price: 11 }, { name: 'خس', qty: '1 رأس', price: 4 }, { name: 'بهارات هندي', qty: 'علبة', price: 3 }] },
+      { title: 'كاري عدس', emoji: '🥘', time: '40 دقيقة', difficulty: 'متوسط', cuisine: 'هندي', nutrition: { calories: 420, protein: 24, carbs: 46, fat: 12, fiber: 12 }, ingredients: [{ name: 'عدس', qty: '1 كيس', price: 7 }, { name: 'حليب جوز هند', qty: '1 علبة', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 3 }, { name: 'بصل', qty: '2 حبات', price: 2 }] },
+      { title: 'مندي خضار', emoji: '🧺', time: '30 دقيقة', difficulty: 'سهل', cuisine: 'هندي', nutrition: { calories: 360, protein: 17, carbs: 48, fat: 10, fiber: 11 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'خضار', qty: '1 باقة', price: 6 }, { name: 'بهارات', qty: 'معبأة', price: 3 }, { name: 'زيت', qty: 'زجاجة', price: 2 }] }
     ]
   },
   {
     name: 'ياباني',
     dishes: [
-      { title: 'سوشي مفروم', emoji: '🍣', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'ياباني', nutrition: { calories: 390, protein: 28, carbs: 32, fat: 15, fiber: 4 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'سمك', qty: '400 غ', price: 15 }, { name: 'نوري', qty: '1 باكيت', price: 4 }, { name: 'زنجبيل', qty: '1 جذر', price: 3 }] },
-      { title: 'رامن خضار', emoji: '🍜', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'ياباني', nutrition: { calories: 500, protein: 21, carbs: 58, fat: 19, fiber: 8 }, ingredients: [{ name: 'نودلز', qty: '1 باكيت', price: 7 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }, { name: 'زنجبيل', qty: '1 جذر', price: 3 }] },
-      { title: 'تيرياكي دجاج', emoji: '🍱', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'ياباني', nutrition: { calories: 520, protein: 37, carbs: 42, fat: 18, fiber: 5 }, ingredients: [{ name: 'دجاج', qty: '400 غ', price: 15 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'فطر', qty: '250 غ', price: 5 }] }
+      { title: 'سوشي مفرو��', emoji: '🍣', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'ياباني', nutrition: { calories: 390, protein: 28, carbs: 32, fat: 15, fiber: 4 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'سمك', qty: '300 غ', price: 12 }, { name: 'نوري', qty: 'علبة', price: 3 }, { name: 'زنجبيل', qty: 'حزمة', price: 2 }] },
+      { title: 'رامن خضار', emoji: '🍜', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'ياباني', nutrition: { calories: 500, protein: 21, carbs: 58, fat: 19, fiber: 8 }, ingredients: [{ name: 'رامن', qty: '1 علبة', price: 7 }, { name: 'خضار', qty: '1 باقة', price: 6 }, { name: 'صلصة', qty: 'علبة', price: 4 }, { name: 'فطر', qty: 'علبة', price: 3 }] },
+      { title: 'تيرياكي دجاج', emoji: '🍱', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'ياباني', nutrition: { calories: 520, protein: 37, carbs: 42, fat: 18, fiber: 5 }, ingredients: [{ name: 'دجاج', qty: '500 غ', price: 15 }, { name: 'صوص تيرياكي', qty: 'علبة', price: 5 }, { name: 'خضار', qty: '1 باقة', price: 4 }, { name: 'أرز', qty: '1 كيس', price: 6 }] }
     ]
   },
   {
     name: 'مكسيكي',
     dishes: [
-      { title: 'تاكو لحم', emoji: '🌮', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'مكسيكي', nutrition: { calories: 470, protein: 32, carbs: 45, fat: 18, fiber: 7 }, ingredients: [{ name: 'لحم مفروم', qty: '400 غ', price: 17 }, { name: 'خبز', qty: '8 قطع', price: 6 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'خس', qty: '1 رأس', price: 4 }] },
-      { title: 'فاهيتا دجاج', emoji: '🍽️', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'مكسيكي', nutrition: { calories: 510, protein: 34, carbs: 38, fat: 22, fiber: 8 }, ingredients: [{ name: 'دجاج', qty: '400 غ', price: 15 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'بصل', qty: '2 حبات', price: 2 }, { name: 'ذرة', qty: '1 علبة', price: 5 }] },
-      { title: 'غوارا ماشا', emoji: '🥑', time: '28 دقيقة', difficulty: 'سهل', cuisine: 'مكسيكي', nutrition: { calories: 430, protein: 20, carbs: 36, fat: 20, fiber: 10 }, ingredients: [{ name: 'أفوكادو', qty: '2 حبات', price: 8 }, { name: 'ذرة', qty: '1 علبة', price: 5 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'ليمون', qty: '2 حبات', price: 2 }] }
+      { title: 'تاكو لحم', emoji: '🌮', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'مكسيكي', nutrition: { calories: 470, protein: 32, carbs: 45, fat: 18, fiber: 7 }, ingredients: [{ name: 'خبز التاكو', qty: '1 باكيت', price: 5 }, { name: 'لحم', qty: '400 غ', price: 16 }, { name: 'خس', qty: '1 رأس', price: 4 }, { name: 'صلصة', qty: 'علبة', price: 3 }] },
+      { title: 'فاهيتا دجاج', emoji: '🍽️', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'مكسيكي', nutrition: { calories: 510, protein: 34, carbs: 38, fat: 22, fiber: 6 }, ingredients: [{ name: 'دجاج', qty: '500 غ', price: 16 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'بصل', qty: '2 حبات', price: 2 }, { name: 'أرز', qty: '1 كيس', price: 6 }] },
+      { title: 'غوارا ماشا', emoji: '🥑', time: '28 دقيقة', difficulty: 'سهل', cuisine: 'مكسيكي', nutrition: { calories: 430, protein: 20, carbs: 36, fat: 20, fiber: 10 }, ingredients: [{ name: 'دجاج', qty: '300 غ', price: 12 }, { name: 'أفوكادو', qty: '2 حبات', price: 5 }, { name: 'خس', qty: '1 رأس', price: 4 }, { name: 'ذرة', qty: 'علبة', price: 3 }] }
     ]
   },
   {
     name: 'تركي',
     dishes: [
-      { title: 'دونر كبدة', emoji: '🍲', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'تركي', nutrition: { calories: 560, protein: 33, carbs: 38, fat: 26, fiber: 6 }, ingredients: [{ name: 'كبدة', qty: '400 غ', price: 18 }, { name: 'بطاطا', qty: '500 غ', price: 5 }, { name: 'بصل', qty: '2 حبات', price: 2 }, { name: 'بهارات', qty: 'معبأة', price: 4 }] },
-      { title: 'بوريك بالجبن', emoji: '🥐', time: '30 دقيقة', difficulty: 'سهل', cuisine: 'تركي', nutrition: { calories: 490, protein: 25, carbs: 43, fat: 20, fiber: 5 }, ingredients: [{ name: 'عجين', qty: '1 باكيت', price: 7 }, { name: 'جبن', qty: '300 غ', price: 9 }, { name: 'بقدونس', qty: 'حزمة', price: 2 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] },
-      { title: 'مزيج رز تركي', emoji: '🍚', time: '45 دقيقة', difficulty: 'متوسط', cuisine: 'تركي', nutrition: { calories: 520, protein: 29, carbs: 55, fat: 18, fiber: 6 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'دجاج', qty: '500 غ', price: 16 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 4 }] }
+      { title: 'دونر كبدة', emoji: '🍲', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'تركي', nutrition: { calories: 560, protein: 33, carbs: 38, fat: 26, fiber: 6 }, ingredients: [{ name: 'كبدة', qty: '500 غ', price: 18 }, { name: 'خبز', qty: '4 قطع', price: 5 }, { name: 'بصل', qty: '2 حبات', price: 2 }, { name: 'بهارات', qty: 'معبأة', price: 3 }] },
+      { title: 'بوريك بالجبن', emoji: '🥐', time: '30 دقيقة', difficulty: 'سهل', cuisine: 'تركي', nutrition: { calories: 490, protein: 25, carbs: 43, fat: 20, fiber: 5 }, ingredients: [{ name: 'عجين', qty: '1 باكيت', price: 5 }, { name: 'جبن', qty: '300 غ', price: 9 }, { name: 'بقدونس', qty: 'حزمة', price: 2 }, { name: 'زيت', qty: 'زجاجة', price: 2 }] },
+      { title: 'مزيج رز تركي', emoji: '🍚', time: '45 دقيقة', difficulty: 'متوسط', cuisine: 'تركي', nutrition: { calories: 520, protein: 29, carbs: 55, fat: 18, fiber: 6 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'دجاج', qty: '500 غ', price: 15 }, { name: 'بهارات', qty: 'معبأة', price: 3 }, { name: 'خس', qty: '1 رأس', price: 4 }] }
     ]
   },
   {
     name: 'فرنسي',
     dishes: [
-      { title: 'كرواسون بالجبن', emoji: '🥐', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'فرنسي', nutrition: { calories: 440, protein: 20, carbs: 46, fat: 18, fiber: 3 }, ingredients: [{ name: 'عجين', qty: '1 باكيت', price: 7 }, { name: 'جبن', qty: '250 غ', price: 9 }, { name: 'حليب', qty: '1 لتر', price: 3 }, { name: 'زبدة', qty: '200 غ', price: 5 }] },
-      { title: 'فرنسي كروك', emoji: '🥘', time: '40 دقيقة', difficulty: 'متوسط', cuisine: 'فرنسي', nutrition: { calories: 510, protein: 28, carbs: 40, fat: 24, fiber: 7 }, ingredients: [{ name: 'لحم بقري', qty: '500 غ', price: 19 }, { name: 'بطاطا', qty: '600 غ', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'زيت', qty: '1 زجاجة', price: 3 }] },
-      { title: 'سلطة نيسواز', emoji: '🥗', time: '15 دقيقة', difficulty: 'سهل', cuisine: 'فرنسي', nutrition: { calories: 360, protein: 17, carbs: 18, fat: 22, fiber: 8 }, ingredients: [{ name: 'خس', qty: '1 رأس', price: 4 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'جبن', qty: '200 غ', price: 8 }, { name: 'زيت زيتون', qty: '1 علبة', price: 4 }] }
+      { title: 'كرواسون بالجبن', emoji: '🥐', time: '25 دقيقة', difficulty: 'سهل', cuisine: 'فرنسي', nutrition: { calories: 440, protein: 20, carbs: 46, fat: 18, fiber: 3 }, ingredients: [{ name: 'عجين كرويسان', qty: '1 باكيت', price: 6 }, { name: 'جبن', qty: '250 غ', price: 8 }, { name: 'حليب', qty: '1 لتر', price: 3 }, { name: 'زبدة', qty: 'علبة', price: 4 }] },
+      { title: 'فرنسي كروك', emoji: '🥘', time: '40 دقيقة', difficulty: 'متوسط', cuisine: 'فرنسي', nutrition: { calories: 510, protein: 28, carbs: 40, fat: 24, fiber: 7 }, ingredients: [{ name: 'بطاطس', qty: '500 غ', price: 3 }, { name: 'جبن', qty: '250 غ', price: 8 }, { name: 'حليب', qty: '1 لتر', price: 3 }, { name: 'ملح', qty: 'علبة', price: 1 }] },
+      { title: 'سلطة نيسواز', emoji: '🥗', time: '15 دقيقة', difficulty: 'سهل', cuisine: 'فرنسي', nutrition: { calories: 360, protein: 17, carbs: 18, fat: 22, fiber: 8 }, ingredients: [{ name: 'خس', qty: '1 رأس', price: 4 }, { name: 'جبن', qty: '200 غ', price: 7 }, { name: 'لوز', qty: 'علبة', price: 5 }, { name: 'زيت زيتون', qty: '1 علبة', price: 4 }] }
     ]
   },
   {
     name: 'صيني',
     dishes: [
-      { title: 'أرز مقلي صيني', emoji: '🍚', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'صيني', nutrition: { calories: 430, protein: 24, carbs: 52, fat: 15, fiber: 5 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }, { name: 'دجاج', qty: '300 غ', price: 12 }] },
-      { title: 'توفو صيني', emoji: '🥢', time: '22 دقيقة', difficulty: 'سهل', cuisine: 'صيني', nutrition: { calories: 380, protein: 19, carbs: 32, fat: 17, fiber: 8 }, ingredients: [{ name: 'توفو', qty: '300 غ', price: 9 }, { name: 'خضار', qty: '1 باقة', price: 5 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }, { name: 'زنجبيل', qty: '1 جذر', price: 3 }] },
-      { title: 'دجاج كرسبي', emoji: '🍗', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'صيني', nutrition: { calories: 570, protein: 37, carbs: 36, fat: 29, fiber: 4 }, ingredients: [{ name: 'دجاج', qty: '500 غ', price: 18 }, { name: 'دقيق', qty: '1 كيس', price: 4 }, { name: 'بهارات', qty: 'معبأة', price: 4 }, { name: 'صلصة صويا', qty: '1 زجاجة', price: 5 }] }
+      { title: 'أرز مقلي صيني', emoji: '🍚', time: '20 دقيقة', difficulty: 'سهل', cuisine: 'صيني', nutrition: { calories: 430, protein: 24, carbs: 52, fat: 15, fiber: 5 }, ingredients: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'خضار', qty: '1 باقة', price: 6 }, { name: 'صلصة صويا', qty: 'علبة', price: 4 }, { name: 'دجاج', qty: '300 غ', price: 11 }] },
+      { title: 'توفو صيني', emoji: '🥢', time: '22 دقيقة', difficulty: 'سهل', cuisine: 'صيني', nutrition: { calories: 380, protein: 19, carbs: 32, fat: 17, fiber: 8 }, ingredients: [{ name: 'توفو', qty: '400 غ', price: 10 }, { name: 'خضار', qty: '1 باقة', price: 6 }, { name: 'صلصة', qty: 'علبة', price: 4 }, { name: 'أرز', qty: '1 كيس', price: 6 }] },
+      { title: 'دجاج كرسبي', emoji: '🍗', time: '30 دقيقة', difficulty: 'متوسط', cuisine: 'صيني', nutrition: { calories: 570, protein: 37, carbs: 36, fat: 29, fiber: 4 }, ingredients: [{ name: 'دجاج', qty: '500 غ', price: 15 }, { name: 'طحين', qty: '1 كيس', price: 4 }, { name: 'بهارات', qty: 'معبأة', price: 3 }, { name: 'خضار', qty: '1 باقة', price: 5 }] }
     ]
   },
   {
     name: 'جنوب أمريكي',
     dishes: [
-      { title: 'سوبا كينانا', emoji: '🌶️', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'جنوب أمريكي', nutrition: { calories: 600, protein: 36, carbs: 47, fat: 27, fiber: 9 }, ingredients: [{ name: 'لحم', qty: '500 غ', price: 20 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'بهارات', qty: 'معبأة', price: 4 }] },
-      { title: 'كاسرادا بانانا', emoji: '🍌', time: '18 دقيقة', difficulty: 'سهل', cuisine: 'جنوب أمريكي', nutrition: { calories: 330, protein: 12, carbs: 44, fat: 10, fiber: 5 }, ingredients: [{ name: 'موز', qty: '4 حبات', price: 6 }, { name: 'زبادي', qty: 'علبة', price: 5 }, { name: 'عسل', qty: '1 علبة', price: 4 }, { name: 'سمسم', qty: '1 علبة', price: 3 }] },
-      { title: 'أكابيليدو', emoji: '🥥', time: '28 دقيقة', difficulty: 'متوسط', cuisine: 'جنوب أمريكي', nutrition: { calories: 520, protein: 23, carbs: 33, fat: 31, fiber: 11 }, ingredients: [{ name: 'سمك', qty: '500 غ', price: 15 }, { name: 'جوز هند', qty: '1 علبة', price: 8 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'خضار', qty: '1 باقة', price: 5 }] }
+      { title: 'سوبا كينانا', emoji: '🌶️', time: '35 دقيقة', difficulty: 'متوسط', cuisine: 'جنوب أمريكي', nutrition: { calories: 600, protein: 36, carbs: 47, fat: 27, fiber: 7 }, ingredients: [{ name: 'لحم', qty: '500 غ', price: 18 }, { name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'بهارات', qty: 'معبأة', price: 3 }] },
+      { title: 'كاسرادا بانانا', emoji: '🍌', time: '18 دقيقة', difficulty: 'سهل', cuisine: 'جنوب أمريكي', nutrition: { calories: 330, protein: 12, carbs: 44, fat: 10, fiber: 6 }, ingredients: [{ name: 'موز', qty: '3 حبات', price: 3 }, { name: 'عجين', qty: '1 باكيت', price: 5 }, { name: 'سكر', qty: 'علبة', price: 2 }, { name: 'مكسرات', qty: 'علبة', price: 4 }] },
+      { title: 'أكابيليدو', emoji: '🥥', time: '28 دقيقة', difficulty: 'متوسط', cuisine: 'جنوب أمريكي', nutrition: { calories: 520, protein: 23, carbs: 33, fat: 31, fiber: 9 }, ingredients: [{ name: 'لحم', qty: '400 غ', price: 15 }, { name: 'حليب جوز الهند', qty: '1 علبة', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 3 }, { name: 'خضار', qty: '1 باقة', price: 5 }] }
     ]
   }
 ];
@@ -848,7 +848,7 @@ function handleAiRequest() {
   `;
 
   refs.aiOutput.querySelector('[data-ai-add]')?.addEventListener('click', () => addRecipeToList(suggestion.title));
-  showToast('تم توليد اقتراح الذكاء الاصطنا��ي');
+  showToast('تم توليد اقتراح الذكاء الاصطناعي');
 }
 
 async function copyShoppingList() {
@@ -900,7 +900,8 @@ function handleInstallClick() {
   }
 
   state.deferredPrompt.prompt();
-  state.deferredPrompt.userChoice.finally(() => {
+  const userChoice = state.deferredPrompt.userChoice || Promise.resolve({ outcome: 'dismissed' });
+  userChoice.finally(() => {
     state.deferredPrompt = null;
     if (refs.installBtn) refs.installBtn.classList.add('hidden');
   });
