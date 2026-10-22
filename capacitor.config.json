@@ -1,6 +1,6 @@
 {
   "appId": "com.tabkhaty.app",
-  "appName": "طبختي",
+  "appName": "Tabkhaty",
   "webDir": ".",
   "bundledWebRuntime": false,
   "server": {

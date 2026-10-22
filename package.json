@@ -2,18 +2,17 @@
   "name": "tabkhaty",
   "version": "1.0.0",
   "private": true,
-  "description": "Tabkhaty mobile wrapper for App Store and Google Play",
+  "description": "Tabkhaty app",
   "scripts": {
+    "dev": "npx serve .",
     "start": "npx serve .",
     "cap:sync": "npx cap sync",
-    "cap:open:ios": "npx cap open ios",
     "cap:open:android": "npx cap open android",
-    "install:mobile": "npm install @capacitor/core @capacitor/cli @capacitor/ios @capacitor/android"
+    "cap:open:ios": "npx cap open ios"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
     "@capacitor/cli": "^7.0.0",
-    "@capacitor/core": "^7.0.0",
-    "@capacitor/ios": "^7.0.0"
+    "@capacitor/core": "^7.0.0"
   }
 }

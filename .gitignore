@@ -1,7 +1,4 @@
 node_modules/
-.vite/
-dist/
 android/
-ios/
 .DS_Store
 npm-debug.log*

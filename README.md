@@ -1,69 +1,28 @@
-# طبختي
+# Tabkhaty
 
-هذا المشروع جاهز الآن للتغليف كـ تطبيقات iPhone و Android باستخدام Capacitor.
-
-## الخطوة 1: تثبيت المكتبات
+## Run locally
 
 ```bash
 npm install
-```
-
-## الخطوة 2: إنشاء مشاريع iOS و Android
-
-```bash
 npx cap init "Tabkhaty" --web-dir .
-npx cap add ios
 npx cap add android
-```
-
-## الخطوة 3: مزامنة المشروع بعد أي تعديل
-
-```bash
 npx cap sync
-```
-
-## الخطوة 4: فتح المشاريع في الأدوات الرسمية
-
-### iOS (Xcode)
-
-```bash
-npx cap open ios
-```
-
-### Android (Android Studio)
-
-```bash
 npx cap open android
 ```
 
-## الخطوة 5: بناء التطبيق للنشر
+## Test on Android emulator/device
 
-### iOS
-- افتح Xcode
-- اختر فريقك (Team)
-- اضبط Bundle Identifier
-- اذهب إلى Signing & Capabilities
-- ارفع الـ build إلى App Store Connect
+After opening Android Studio:
+- choose an emulator or a connected Android phone
+- press Run
+- test the app before publishing
 
-### Android
-- افتح Android Studio
-- أنشئ ملف Sign Key
-- أرسل الـ AAB إلى Google Play Console
+## Before publishing to Google Play
 
-## ملاحظات مهمة
+- generate a signing key
+- create a release AAB
+- upload it to Google Play Console
 
-- لا ترفع المشروع كـ PWA خام إلى App Store أو Google Play.
-- يجب تغليفه عبر Capacitor.
-- تأكد أن `index.html` هو الصفحة الرئيسية.
-- تأكد أن `manifest.webmanifest` و `sw.js` يعملان داخل التطبيق في حالة الاستخدام.
+## Note
 
-## المتطلبات
-
-- MacBook + Xcode لِـ App Store
-- Android Studio + Google Play Console لِـ Android
-- Apple Developer Program
-- Google Play Console account
-
-## التهيئة الأساسية الحالية
-
-تمت إضافة ملف `capacitor.config.json` داخل المشروع ليكون جاهزًا للبدء مباشرة.
+This project is currently the web app version. For App Store publishing, a MacBook with Xcode is required.
