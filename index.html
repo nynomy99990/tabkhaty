@@ -37,6 +37,12 @@
   </section>
   <section id="shopping" class="panel">
     <div class="section-head"><div><h2>قائمة المقاضي</h2><p>علّم على المنتجات اللي حطيتها بالسلة.</p></div><button class="primary small" id="copyList">نسخ القائمة</button></div>
+    <div class="custom-add">
+      <input id="customItemName" type="text" placeholder="اسم المنتج" aria-label="اسم المنتج">
+      <input id="customItemQty" type="text" placeholder="الكمية" aria-label="الكمية">
+      <input id="customItemPrice" type="number" min="0" step="1" placeholder="السعر" aria-label="السعر">
+      <button id="addCustomItem" type="button">أضف</button>
+    </div>
     <div class="summary-cards">
       <div class="summary"><small>التكلفة التقديرية</small><strong id="totalCost">0 ر.س</strong></div>
       <div class="summary"><small>الميزانية المتبقية</small><strong id="remaining">0 ر.س</strong></div>
@@ -53,7 +59,7 @@
     <span>🌱</span><div><strong>طبختي يتطور معك</strong><p>هذه نسخة أولية تعمل على جهازك. حفظ البيانات محلي، وربط الحسابات والأسعار الفعلية يحتاج إعداد خدمات خارجية.</p></div>
   </section>
 </main>
-<footer>طبختي © <span id="year"></span> · نسخة تجريبية</footer>
+<footer>طبختي © <span id="year"></span> · نسخ�� تجريبية</footer>
 <div id="toast" role="status" class="toast" aria-live="polite"></div>
 <script src="app.js"></script>
 </body>

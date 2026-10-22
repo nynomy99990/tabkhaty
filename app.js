@@ -1,4 +1,6 @@
-const meals = [
+const STORAGE_KEY = 'tabkhaty-state-v1';
+
+const defaultMeals = [
   {
     id: 'mon-lunch',
     day: 'الاثنين',
@@ -7,7 +9,11 @@ const meals = [
     title: 'مزيج أرز وسمك',
     meta: '٣ أشخاص · 20 دقيقة',
     cost: 18,
-    items: [{ name: 'أرز', qty: '1 كيس', price: 6 }, { name: 'سمك', qty: '400 غ', price: 9 }, { name: 'خضار', qty: '1 باقة', price: 3 }]
+    items: [
+      { name: 'أرز', qty: '1 كيس', price: 6 },
+      { name: 'سمك', qty: '400 غ', price: 9 },
+      { name: 'خضار', qty: '1 باقة', price: 3 }
+    ]
   },
   {
     id: 'mon-dinner',
@@ -17,7 +23,12 @@ const meals = [
     title: 'سلطة دجاج مشوية',
     meta: '٤ أشخاص · 25 دقيقة',
     cost: 22,
-    items: [{ name: 'دجاج', qty: '500 غ', price: 11 }, { name: 'خس', qty: '1 رأس', price: 4 }, { name: 'طماطم', qty: '3 حبات', price: 2 }, { name: 'زبادي', qty: 'علبة', price: 5 }]
+    items: [
+      { name: 'دجاج', qty: '500 غ', price: 11 },
+      { name: 'خس', qty: '1 رأس', price: 4 },
+      { name: 'طماطم', qty: '3 حبات', price: 2 },
+      { name: 'زبادي', qty: 'علبة', price: 5 }
+    ]
   },
   {
     id: 'tue-lunch',
@@ -27,7 +38,12 @@ const meals = [
     title: 'كسكس بالخضار',
     meta: '٤ أشخاص · 30 دقيقة',
     cost: 16,
-    items: [{ name: 'كسكس', qty: '1 كيس', price: 5 }, { name: 'جزر', qty: '2 ��بات', price: 2 }, { name: 'فلفل', qty: '3 حبات', price: 3 }, { name: 'زيت', qty: '1 زجاجة', price: 6 }]
+    items: [
+      { name: 'كسكس', qty: '1 كيس', price: 5 },
+      { name: 'جزر', qty: '2 حبات', price: 2 },
+      { name: 'فلفل', qty: '3 حبات', price: 3 },
+      { name: 'زيت', qty: '1 زجاجة', price: 6 }
+    ]
   },
   {
     id: 'wed-dinner',
@@ -37,7 +53,12 @@ const meals = [
     title: 'حساء عدس',
     meta: '٤ أشخاص · 35 دقيقة',
     cost: 14,
-    items: [{ name: 'عدس', qty: '1 كيس', price: 7 }, { name: 'بطاطس', qty: '500 غ', price: 3 }, { name: 'بهارات', qty: 'معبأة', price: 2 }, { name: 'ليمون', qty: '2 حبات', price: 2 }]
+    items: [
+      { name: 'عدس', qty: '1 كيس', price: 7 },
+      { name: 'بطاطس', qty: '500 غ', price: 3 },
+      { name: 'بهارات', qty: 'معبأة', price: 2 },
+      { name: 'ليمون', qty: '2 حبات', price: 2 }
+    ]
   },
   {
     id: 'thu-lunch',
@@ -47,7 +68,12 @@ const meals = [
     title: 'مكرونة بالجبن',
     meta: '٤ أشخاص · 20 دقيقة',
     cost: 19,
-    items: [{ name: 'مكرونة', qty: '1 علبة', price: 6 }, { name: 'جبن', qty: '250 غ', price: 8 }, { name: 'ثوم', qty: 'رأس', price: 2 }, { name: 'حليب', qty: '1 لتر', price: 3 }]
+    items: [
+      { name: 'مكرونة', qty: '1 علبة', price: 6 },
+      { name: 'جبن', qty: '250 غ', price: 8 },
+      { name: 'ثوم', qty: 'رأس', price: 2 },
+      { name: 'حليب', qty: '1 لتر', price: 3 }
+    ]
   },
   {
     id: 'fri-dinner',
@@ -57,7 +83,12 @@ const meals = [
     title: 'دجاج مشوي',
     meta: '٦ أشخاص · 40 دقيقة',
     cost: 26,
-    items: [{ name: 'دجاج', qty: '1 كجم', price: 15 }, { name: 'بطاطا', qty: '1 كجم', price: 5 }, { name: 'بهارات', qty: 'معبأة', price: 3 }, { name: 'ليمون', qty: '3 حبات', price: 3 }]
+    items: [
+      { name: 'دجاج', qty: '1 كجم', price: 15 },
+      { name: 'بطاطا', qty: '1 كجم', price: 5 },
+      { name: 'بهارات', qty: 'معبأة', price: 3 },
+      { name: 'ليمون', qty: '3 حبات', price: 3 }
+    ]
   },
   {
     id: 'sat-lunch',
@@ -67,24 +98,101 @@ const meals = [
     title: 'فطائر بالجبن',
     meta: '٤ أشخاص · 28 دقيقة',
     cost: 17,
-    items: [{ name: 'عجين', qty: '1 باكيت', price: 5 }, { name: 'جبن', qty: '300 غ', price: 8 }, { name: 'بقدونس', qty: 'حزمة', price: 2 }, { name: 'زيت', qty: 'زجاجة', price: 2 }]
+    items: [
+      { name: 'عجين', qty: '1 باكيت', price: 5 },
+      { name: 'جبن', qty: '300 غ', price: 8 },
+      { name: 'بقدونس', qty: 'حزمة', price: 2 },
+      { name: 'زيت', qty: 'زجاجة', price: 2 }
+    ]
   }
 ];
 
-const recipes = [
-  { title: 'سلطة الشاورما المنزلية', time: '20 دقيقة', emoji: '🥙', blurb: 'سريعة ومشبعة.', accent: 'خضار' },
-  { title: 'أرز بالدجاج', time: '35 دقيقة', emoji: '🍚', blurb: 'وجبة عائلية مريحة.', accent: 'غداء' },
-  { title: 'كفتة بالطحينة', time: '30 دقيقة', emoji: '🍢', blurb: 'نكهة عربية مميزة.', accent: 'عشاء' },
-  { title: 'مكرونة بالفرماج', time: '25 دقيقة', emoji: '🍝', blurb: 'سهل وسريع.', accent: 'عائلة' },
-  { title: 'شوربة العدس', time: '15 دقيقة', emoji: '🥣', blurb: 'مفيدة ومشبعة.', accent: 'عشاء' },
-  { title: 'سمك مشوي', time: '24 دقيقة', emoji: '🐟', blurb: 'قيمة غذائية عالية.', accent: 'غداء' }
+const defaultRecipes = [
+  {
+    title: 'سلطة الشاورما المنزلية',
+    time: '20 دقيقة',
+    emoji: '🥙',
+    blurb: 'سريعة ومشبعة.',
+    accent: 'خضار',
+    ingredients: [
+      { name: 'خبز', qty: '4 قطع', price: 5 },
+      { name: 'دجاج', qty: '300 غ', price: 11 },
+      { name: 'خس', qty: '1 رأس', price: 4 },
+      { name: 'صوص', qty: '1 علبة', price: 3 }
+    ]
+  },
+  {
+    title: 'أرز بالدجاج',
+    time: '35 دقيقة',
+    emoji: '🍚',
+    blurb: 'وجبة عائلية مريحة.',
+    accent: 'غداء',
+    ingredients: [
+      { name: 'أرز', qty: '1 كيس', price: 6 },
+      { name: 'دجاج', qty: '500 غ', price: 12 },
+      { name: 'بهارات', qty: 'معبأة', price: 3 },
+      { name: 'جزر', qty: '2 حبات', price: 2 }
+    ]
+  },
+  {
+    title: 'كفتة بالطحينة',
+    time: '30 دقيقة',
+    emoji: '🍢',
+    blurb: 'نكهة عربية مميزة.',
+    accent: 'عشاء',
+    ingredients: [
+      { name: 'لحم مفروم', qty: '400 غ', price: 16 },
+      { name: 'طحينة', qty: '1 علبة', price: 5 },
+      { name: 'بقدونس', qty: 'حزمة', price: 2 },
+      { name: 'خبز', qty: '4 قطع', price: 4 }
+    ]
+  },
+  {
+    title: 'مكرونة بالفرماج',
+    time: '25 دقيقة',
+    emoji: '🍝',
+    blurb: 'سهل وسريع.',
+    accent: 'عائلة',
+    ingredients: [
+      { name: 'مكرونة', qty: '1 علبة', price: 6 },
+      { name: 'جبن', qty: '250 غ', price: 8 },
+      { name: 'حليب', qty: '1 لتر', price: 3 },
+      { name: 'ثوم', qty: 'رأس', price: 2 }
+    ]
+  },
+  {
+    title: 'شوربة العدس',
+    time: '15 دقيقة',
+    emoji: '🥣',
+    blurb: 'مفيدة ومشبعة.',
+    accent: 'عشاء',
+    ingredients: [
+      { name: 'عدس', qty: '1 كيس', price: 7 },
+      { name: 'بطاطس', qty: '500 غ', price: 3 },
+      { name: 'بهارات', qty: 'معبأة', price: 2 },
+      { name: 'ليمون', qty: '2 حبات', price: 2 }
+    ]
+  },
+  {
+    title: 'سمك مشوي',
+    time: '24 دقيقة',
+    emoji: '🐟',
+    blurb: 'قيمة غذائية عالية.',
+    accent: 'غداء',
+    ingredients: [
+      { name: 'سمك', qty: '500 غ', price: 13 },
+      { name: 'ليمون', qty: '2 حبات', price: 2 },
+      { name: 'خضار', qty: '1 باقة', price: 3 },
+      { name: 'زيت', qty: 'زجاجة', price: 2 }
+    ]
+  }
 ];
 
 const state = {
   budget: 180,
   people: 4,
-  shoppingList: new Map(),
-  checked: new Set(),
+  shoppingList: [],
+  checked: [],
   selectedTab: 'plan'
 };
 
@@ -103,15 +211,45 @@ const refs = {
   toast: document.querySelector('#toast'),
   year: document.querySelector('#year'),
   tabs: [...document.querySelectorAll('.tab')],
-  panels: [...document.querySelectorAll('.panel')]
+  panels: [...document.querySelectorAll('.panel')],
+  customName: document.querySelector('#customItemName'),
+  customQty: document.querySelector('#customItemQty'),
+  customPrice: document.querySelector('#customItemPrice'),
+  addCustom: document.querySelector('#addCustomItem')
 };
 
 function formatCurrency(value) {
   return `${Math.round(value)} ر.س`;
 }
 
+function loadState() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return;
+
+  try {
+    const saved = JSON.parse(raw);
+    state.budget = Number(saved.budget) || state.budget;
+    state.people = Number(saved.people) || state.people;
+    state.selectedTab = saved.selectedTab || state.selectedTab;
+    state.shoppingList = Array.isArray(saved.shoppingList) ? saved.shoppingList : [];
+    state.checked = Array.isArray(saved.checked) ? saved.checked : [];
+  } catch (error) {
+    console.warn('Local state could not be read:', error);
+  }
+}
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    budget: state.budget,
+    people: state.people,
+    selectedTab: state.selectedTab,
+    shoppingList: state.shoppingList,
+    checked: state.checked
+  }));
+}
+
 function renderMeals() {
-  refs.mealGrid.innerHTML = meals.map(meal => `
+  refs.mealGrid.innerHTML = defaultMeals.map(meal => `
     <article class="meal-card">
       <div class="meal-top">
         <span class="day">${meal.day}</span>
@@ -140,23 +278,49 @@ function renderMeals() {
   });
 }
 
+function addItemToList(item) {
+  const normalized = {
+    name: String(item.name || '').trim(),
+    qtyLabel: String(item.qty || item.qtyLabel || '').trim(),
+    price: Number(item.price) || 0
+  };
+
+  if (!normalized.name || !normalized.price) return;
+
+  const existing = state.shoppingList.find(entry => entry.name === normalized.name);
+  if (existing) {
+    existing.price = Number(existing.price) + normalized.price;
+    if (normalized.qtyLabel) existing.qtyLabel = normalized.qtyLabel;
+  } else {
+    state.shoppingList.push({
+      name: normalized.name,
+      qtyLabel: normalized.qtyLabel || 'منتج',
+      price: normalized.price
+    });
+  }
+
+  saveState();
+  renderShoppingList();
+}
+
 function addMealToList(mealId) {
-  const meal = meals.find(item => item.id === mealId);
+  const meal = defaultMeals.find(item => item.id === mealId);
   if (!meal) return;
 
-  meal.items.forEach(item => {
-    const old = state.shoppingList.get(item.name) || { name: item.name, price: 0, qty: 0 };
-    const nextPrice = old.price + item.price;
-    const nextQty = old.qty + 1;
-    state.shoppingList.set(item.name, { name: item.name, price: nextPrice, qty: nextQty, unit: item.qty });
-  });
-
-  renderShoppingList();
+  meal.items.forEach(item => addItemToList(item));
   showToast(`تمت إضافة ${meal.title} إلى المقاضي`);
 }
 
+function addRecipeToList(recipeTitle) {
+  const recipe = defaultRecipes.find(item => item.title === recipeTitle);
+  if (!recipe) return;
+
+  recipe.ingredients.forEach(item => addItemToList(item));
+  showToast(`تمت إضافة مكونات ${recipe.title}`);
+}
+
 function renderRecipes() {
-  refs.recipeGrid.innerHTML = recipes.map(recipe => `
+  refs.recipeGrid.innerHTML = defaultRecipes.map(recipe => `
     <article class="recipe-card">
       <div class="meal-top">
         <span class="day">${recipe.accent}</span>
@@ -168,74 +332,137 @@ function renderRecipes() {
         <span>${recipe.time}</span>
         <span>سهل</span>
       </div>
-      <button type="button">إضافة للوصفة</button>
+      <button type="button" data-recipe="${recipe.title}">إضافة إلى المقاضي</button>
     </article>
   `).join('');
+
+  refs.recipeGrid.querySelectorAll('[data-recipe]').forEach(button => {
+    button.addEventListener('click', () => addRecipeToList(button.dataset.recipe));
+  });
 }
 
-function buildShoppingList() {
-  const entries = [...state.shoppingList.values()].map(item => ({
-    ...item,
-    price: Number((item.price / Math.max(state.people, 1)).toFixed(2))
-  }));
+function toggleChecked(name, checked) {
+  if (checked) {
+    if (!state.checked.includes(name)) state.checked.push(name);
+  } else {
+    state.checked = state.checked.filter(item => item !== name);
+  }
+  saveState();
+  renderShoppingList();
+}
 
-  return entries.sort((a, b) => b.price - a.price);
+function deleteItem(name) {
+  state.shoppingList = state.shoppingList.filter(item => item.name !== name);
+  state.checked = state.checked.filter(item => item !== name);
+  saveState();
+  renderShoppingList();
+}
+
+function editItem(name) {
+  const item = state.shoppingList.find(entry => entry.name === name);
+  if (!item) return;
+
+  const rawValue = prompt('تعديل العنصر: اكتب "اسم, الكمية, السعر"', `${item.name},${item.qtyLabel},${item.price}`);
+  if (rawValue === null) return;
+
+  const parts = rawValue.split(',').map(part => part.trim());
+  const nextName = parts[0] || item.name;
+  const nextQty = parts[1] || item.qtyLabel;
+  const nextPrice = Number(parts[2]) || item.price;
+
+  item.name = nextName;
+  item.qtyLabel = nextQty;
+  item.price = nextPrice;
+
+  if (state.checked.includes(name)) {
+    state.checked = state.checked.filter(itemName => itemName !== name);
+    state.checked.push(nextName);
+  }
+
+  saveState();
+  renderShoppingList();
+  showToast('تم تحديث العنصر');
+}
+
+function getTotalCost() {
+  return state.shoppingList.reduce((sum, item) => sum + Number(item.price || 0), 0);
 }
 
 function renderShoppingList() {
-  const entries = buildShoppingList();
-
+  const entries = [...state.shoppingList].sort((a, b) => b.price - a.price);
   refs.countBadge.textContent = entries.length;
 
   if (!entries.length) {
-    refs.shoppingList.innerHTML = '<div class="shop-item"><div class="item-info"><strong>لا توجد عناصر بعد</strong><small>أضف وجبات من قسم خطة الأسبوع</small></div></div>';
+    refs.shoppingList.innerHTML = `
+      <div class="shop-item empty-state">
+        <div class="item-info">
+          <strong>لا توجد عناصر بعد</strong>
+          <small>أضف وجبات من قسم خطة الأسبوع أو أضف عنصرًا يدويًا</small>
+        </div>
+      </div>
+    `;
     refs.totalCost.textContent = '0 ر.س';
     refs.remaining.textContent = `${state.budget} ر.س`;
     refs.budgetProgress.style.width = '0%';
+    refs.budgetProgress.parentElement.classList.remove('warning');
     return;
   }
 
-  const total = entries.reduce((sum, item) => sum + item.price, 0);
-  const remaining = Math.max(state.budget - total, 0);
+  const total = getTotalCost();
+  const remaining = state.budget - total;
+  const percent = Math.min((total / Math.max(state.budget, 1)) * 100, 100);
 
   refs.totalCost.textContent = formatCurrency(total);
   refs.remaining.textContent = formatCurrency(remaining);
-  refs.budgetProgress.style.width = `${Math.min((total / Math.max(state.budget, 1)) * 100, 100)}%`;
+  refs.budgetProgress.style.width = `${percent}%`;
+  refs.budgetProgress.parentElement.classList.toggle('warning', remaining < 0);
 
   refs.shoppingList.innerHTML = entries.map(item => {
-    const checked = state.checked.has(item.name) ? 'checked' : '';
+    const checked = state.checked.includes(item.name) ? 'checked' : '';
+
     return `
-      <label class="shop-item ${checked}">
-        <input type="checkbox" ${checked ? 'checked' : ''} data-item-name="${item.name}">
+      <div class="shop-item ${checked}">
+        <input type="checkbox" ${state.checked.includes(item.name) ? 'checked' : ''} data-item-name="${item.name}">
         <div class="item-info">
           <strong>${item.name}</strong>
-          <small>${item.unit}</small>
+          <small>${item.qtyLabel || 'منتج عادي'}</small>
         </div>
-        <span class="price">${formatCurrency(item.price)}</span>
-      </label>
+        <div class="item-tools">
+          <span class="price">${formatCurrency(item.price)}</span>
+          <div class="inline-actions">
+            <button type="button" class="mini-btn" data-edit-item="${item.name}">تعديل</button>
+            <button type="button" class="mini-btn danger" data-delete-item="${item.name}">حذف</button>
+          </div>
+        </div>
+      </div>
     `;
   }).join('');
 
   refs.shoppingList.querySelectorAll('input[type="checkbox"]').forEach(input => {
-    input.addEventListener('change', () => {
-      const name = input.dataset.itemName;
-      if (input.checked) {
-        state.checked.add(name);
-      } else {
-        state.checked.delete(name);
-      }
-      renderShoppingList();
+    input.addEventListener('change', (event) => {
+      const name = event.target.dataset.itemName;
+      toggleChecked(name, event.target.checked);
     });
+  });
+
+  refs.shoppingList.querySelectorAll('[data-delete-item]').forEach(button => {
+    button.addEventListener('click', () => deleteItem(button.dataset.deleteItem));
+  });
+
+  refs.shoppingList.querySelectorAll('[data-edit-item]').forEach(button => {
+    button.addEventListener('click', () => editItem(button.dataset.editItem));
   });
 }
 
 function updateBudget() {
   state.budget = Number(refs.budget.value) || 0;
+  saveState();
   renderShoppingList();
 }
 
 function updatePeople() {
   state.people = Number(refs.people.value) || 1;
+  saveState();
   renderShoppingList();
 }
 
@@ -254,19 +481,36 @@ function handleTabs() {
 function resetPlanner() {
   state.budget = 180;
   state.people = 4;
-  state.shoppingList = new Map();
-  state.checked = new Set();
+  state.shoppingList = [];
+  state.checked = [];
   refs.budget.value = 180;
   refs.people.value = 4;
-  updateBudget();
+  saveState();
   renderShoppingList();
   showToast('تمت إعادة ضبط الخطة');
 }
 
+function addCustomItem() {
+  const name = refs.customName.value.trim();
+  const qty = refs.customQty.value.trim();
+  const price = Number(refs.customPrice.value);
+
+  if (!name || !Number.isFinite(price) || price <= 0) {
+    showToast('أدخل اسمًا وسعرًا صحيحًا');
+    return;
+  }
+
+  addItemToList({ name, qty, price });
+  refs.customName.value = '';
+  refs.customQty.value = '';
+  refs.customPrice.value = '';
+  refs.customName.focus();
+  showToast('تمت إضافة العنصر المخصص');
+}
+
 async function copyShoppingList() {
-  const entries = buildShoppingList();
-  const text = entries.length
-    ? entries.map(item => `- ${item.name}: ${formatCurrency(item.price)}`).join('\n')
+  const text = state.shoppingList.length
+    ? state.shoppingList.map(item => `- ${item.name}: ${formatCurrency(item.price)}`).join('\n')
     : 'قائمة المقاضي فارغة';
 
   try {
@@ -288,14 +532,19 @@ refs.budget.addEventListener('input', updateBudget);
 refs.people.addEventListener('change', updatePeople);
 refs.resetBtn.addEventListener('click', resetPlanner);
 refs.copyList.addEventListener('click', copyShoppingList);
+refs.addCustom.addEventListener('click', addCustomItem);
 refs.tabs.forEach(tab => {
   tab.addEventListener('click', () => {
     state.selectedTab = tab.dataset.tab;
+    saveState();
     handleTabs();
   });
 });
 
 refs.year.textContent = new Date().getFullYear();
+loadState();
+refs.budget.value = state.budget;
+refs.people.value = state.people;
 renderMeals();
 renderRecipes();
 handleTabs();
